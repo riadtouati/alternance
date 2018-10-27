@@ -18,6 +18,11 @@ class User implements UserInterface, \Serializable
      */
     private $id;
 
+     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="user")
+     */
+    private $article;
+
 
     /**
      * @ORM\Column(type="string", length=255)
