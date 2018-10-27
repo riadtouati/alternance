@@ -20,7 +20,7 @@ class AuthenticationController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('authentification/login.html.twig', array(
+        return $this->render('homme/index.html.twig', array(
             'last_username' => $lastUsername,
             'error'         => $error,
         ));
