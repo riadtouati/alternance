@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -33,9 +35,24 @@ class Article
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
+     * @Assert\File(mimeTypes={ "application/pdf" })
      */
-    private $link_video;
+    private $video;
+
+    public function getVideo()
+    {
+        return $this->video;
+    }
+
+    public function setVideo($video)
+    {
+        $this->video = $video;
+
+        return $this;
+    }
 
     public function getId(): ?int
     {
@@ -66,15 +83,4 @@ class Article
         return $this;
     }
 
-    public function getLinkVideo(): ?string
-    {
-        return $this->link_video;
-    }
-
-    public function setLinkVideo(string $link_video): self
-    {
-        $this->link_video = $link_video;
-
-        return $this;
-    }
 }

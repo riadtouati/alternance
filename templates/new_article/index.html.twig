@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            
+
+            {{ form_start(form) }}
+
+                <div class="form-group">
+                    <label>Prénom</label>
+                    {{ form_errors(form.title) }}
+                    {{ form_widget(form.title, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+
+                <div class="form-group">
+                    <label>Nom</label>
+                    {{ form_errors(form.description) }}
+                    {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    {{ form_errors(form.video) }}
+                    {{ form_widget(form.video, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+
+                <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+            {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
