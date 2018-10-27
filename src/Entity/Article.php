@@ -25,6 +25,11 @@ class Article
     private $user;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="article_comment")
+     */
+    private $article_comment;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $title;

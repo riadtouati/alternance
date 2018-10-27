@@ -23,6 +23,11 @@ class User implements UserInterface, \Serializable
      */
     private $article;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comments", mappedBy="user")
+     */
+    private $comments;
+
 
     /**
      * @ORM\Column(type="string", length=255)
