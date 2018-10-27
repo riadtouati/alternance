@@ -10,10 +10,13 @@ class HommeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index()
+
+    public function chain(FiveArticleService $fiveArticleService)
     {
+        
+        $chain = $fiveArticleService->getFiveArticleService();
         return $this->render('homme/index.html.twig', [
-            'controller_name' => 'HommeController',
+            'articles' => $article
         ]);
     }
 }
